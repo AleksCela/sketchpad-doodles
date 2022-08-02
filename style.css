@@ -1,0 +1,135 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #AAAAAA;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    color: rebeccapurple;
+    font-size: 1.6rem;
+}
+html {
+    font-size: 62.5%;
+}
+
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+span {
+  margin-top: 3.5rem;
+  margin-left: 25%;
+  font-size: 4rem;
+  text-shadow: 5px 5px #eddcd2;
+  transform: translate(-50%, -50%);
+  font-size:120px;
+  letter-spacing:0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 8px 8px #ff1f8f,20px 20px #000000;
+}
+
+.container {
+    margin-top: 30px;
+    padding: 0 2vw;
+    display: flex;
+    justify-content: center;
+}
+.controls {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    background-color:#39CCCC;
+    padding: 10%;
+    border-radius: 70%;
+    margin-top: 80px;
+    margin-right: 82px;
+}
+.grid-size {
+    margin-bottom: 0.5rem;
+    color: black;
+    font-weight: 500;
+    font-size: 33px;
+    background: rgba(204, 204, 204, 0.5);
+}
+
+.grid {
+    border: 2px solid #a8dadc;
+    border-radius: 1rem;
+    width: 70rem;
+    height: 70rem;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.box {
+    border: 0.5px solid rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.active {
+    background-color:red;
+}
